@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import AuctionDetail from "./pages/AuctionDetail";
 import CreateAuction from "./pages/CreateAuction";
 import Dashboard from "./pages/Dashboard";
+import Admin from "./pages/Admin";
+import AdminUser from "./pages/AdminUser";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,8 @@ const App = () => (
             <Route path="/auction/:id" element={<AuctionDetail />} />
             <Route path="/create" element={<CreateAuction />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/users/:id" element={<AdminUser />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
