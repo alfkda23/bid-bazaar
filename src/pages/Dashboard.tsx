@@ -17,7 +17,12 @@ export default function Dashboard() {
       <main className="mx-auto grid max-w-md gap-4 px-4 pb-24 pt-5">
         <header>
           <p className="text-sm text-muted-foreground">ملخص سريع</p>
-          <h1 className="font-display text-2xl font-extrabold">لوحة التحكم</h1>
+          <div className="flex items-end justify-between gap-3">
+            <h1 className="font-display text-2xl font-extrabold">لوحة التحكم</h1>
+            <Button asChild variant="soft" size="sm" className="rounded-full">
+              <NavLink to="/admin">لوحة الإدارة</NavLink>
+            </Button>
+          </div>
         </header>
 
         <section className="grid grid-cols-2 gap-3">
