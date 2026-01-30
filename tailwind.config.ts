@@ -19,9 +19,25 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          foreground: "hsl(var(--brand-foreground))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        danger: {
+          DEFAULT: "hsl(var(--danger))",
+          foreground: "hsl(var(--danger-foreground))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -58,10 +74,18 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-sans)", "system-ui", "sans-serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        soft: "var(--shadow-soft)",
+        lift: "var(--shadow-lift)",
       },
       keyframes: {
         "accordion-down": {
@@ -80,10 +104,20 @@ export default {
             height: "0",
           },
         },
+        "auction-pulse": {
+          "0%, 100%": { transform: "scale(1)", filter: "saturate(1)" },
+          "50%": { transform: "scale(1.02)", filter: "saturate(1.25)" },
+        },
+        "float-up": {
+          "0%": { transform: "translateY(6px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "auction-pulse": "auction-pulse 1.2s ease-in-out infinite",
+        "float-up": "float-up 420ms cubic-bezier(0.2, 0.9, 0.2, 1)",
       },
     },
   },

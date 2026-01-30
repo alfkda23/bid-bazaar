@@ -6,37 +6,63 @@
 All colors MUST be HSL.
 */
 
+/* Arabic-first typography */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap");
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand: Souq El Gheza */
+    --font-sans: "Cairo";
+    --font-display: "Cairo";
+
+    --background: 48 33% 98%;
+    --foreground: 164 28% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 164 28% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 164 28% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep green trust */
+    --primary: 162 48% 20%;
+    --primary-foreground: 45 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Gold/amber energy */
+    --brand: 40 96% 50%;
+    --brand-foreground: 164 28% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --success: 160 84% 36%;
+    --success-foreground: 45 40% 98%;
+    --warning: 40 96% 50%;
+    --warning-foreground: 164 28% 12%;
+    --danger: 0 84% 60%;
+    --danger-foreground: 45 40% 98%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --secondary: 165 28% 96%;
+    --secondary-foreground: 164 28% 12%;
+
+    --muted: 165 20% 95%;
+    --muted-foreground: 168 10% 40%;
+
+    --accent: 162 38% 92%;
+    --accent-foreground: 164 28% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 164 18% 88%;
+    --input: 164 18% 88%;
+    --ring: 40 96% 50%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Effects */
+    --shadow-soft: 0 10px 30px -18px hsl(162 48% 20% / 0.25);
+    --shadow-lift: 0 22px 50px -30px hsl(162 48% 20% / 0.45);
+    --gradient-hero: radial-gradient(1200px 600px at 80% -20%, hsl(40 96% 50% / 0.22), transparent 55%),
+      radial-gradient(900px 520px at -10% 10%, hsl(160 84% 36% / 0.18), transparent 60%),
+      linear-gradient(180deg, hsl(48 33% 99%), hsl(48 33% 97%));
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +82,50 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 164 28% 8%;
+    --foreground: 45 40% 96%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 164 28% 10%;
+    --card-foreground: 45 40% 96%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 164 28% 10%;
+    --popover-foreground: 45 40% 96%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 160 84% 36%;
+    --primary-foreground: 164 28% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --brand: 40 96% 54%;
+    --brand-foreground: 164 28% 10%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --success: 160 84% 40%;
+    --success-foreground: 164 28% 10%;
+    --warning: 40 96% 54%;
+    --warning-foreground: 164 28% 10%;
+    --danger: 0 84% 62%;
+    --danger-foreground: 164 28% 10%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --secondary: 164 22% 16%;
+    --secondary-foreground: 45 40% 96%;
+
+    --muted: 164 20% 14%;
+    --muted-foreground: 165 10% 72%;
+
+    --accent: 164 22% 16%;
+    --accent-foreground: 45 40% 96%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 164 16% 22%;
+    --input: 164 16% 22%;
+    --ring: 40 96% 54%;
+
+    --shadow-soft: 0 12px 34px -20px hsl(0 0% 0% / 0.45);
+    --shadow-lift: 0 30px 70px -42px hsl(0 0% 0% / 0.65);
+    --gradient-hero: radial-gradient(1100px 520px at 75% -15%, hsl(40 96% 54% / 0.18), transparent 55%),
+      radial-gradient(900px 520px at 0% 12%, hsl(160 84% 40% / 0.14), transparent 60%),
+      linear-gradient(180deg, hsl(164 28% 9%), hsl(164 28% 7%));
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +143,13 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .bg-hero {
+    background-image: var(--gradient-hero);
   }
 }
