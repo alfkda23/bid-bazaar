@@ -85,12 +85,17 @@ export default function CreateAuction() {
               </div>
             </div>
 
-            <div className="grid gap-2">
-              <Label htmlFor="notes" className="text-sm font-bold">
-                تفاصيل إضافية
-              </Label>
-              <Textarea id="notes" placeholder="الجودة، شروط التسليم، الدفع…" className="min-h-24 rounded-2xl" />
-            </div>
+            <details className="rounded-2xl border bg-background/60 p-3">
+              <summary className="cursor-pointer select-none text-sm font-extrabold">
+                تفاصيل إضافية (اختياري)
+              </summary>
+              <div className="mt-3 grid gap-2">
+                <Label htmlFor="notes" className="text-sm font-bold">
+                  ملاحظات
+                </Label>
+                <Textarea id="notes" placeholder="الجودة، شروط التسليم، الدفع…" className="min-h-24 rounded-2xl" />
+              </div>
+            </details>
 
             <Button variant="hero" size="xl" className="w-full rounded-2xl" type="submit">
               حفظ ومتابعة

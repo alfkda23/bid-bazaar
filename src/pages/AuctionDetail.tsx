@@ -19,6 +19,7 @@ export default function AuctionDetail() {
   const auction = useMemo(() => auctions.find((a) => a.id === id) ?? auctions[0], [id]);
 
   const [bidValue, setBidValue] = useState(() => String(auction.currentBidEgp + auction.minIncrementEgp));
+  const [showCustomBid, setShowCustomBid] = useState(false);
   const [highlightId, setHighlightId] = useState<string | undefined>(undefined);
   const [rows, setRows] = useState<BidRow[]>(() => {
     const base = auction.currentBidEgp;
@@ -139,49 +140,40 @@ export default function AuctionDetail() {
               <div className="text-xs text-muted-foreground">الحد الأدنى للزيادة: {formatEgp(auction.minIncrementEgp)}</div>
             </div>
 
-            <div className="mt-3 grid gap-2">
-              <label className="text-xs font-semibold text-muted-foreground">مبلغ العرض (ج.م)</label>
-              <Input
-                inputMode="numeric"
-                value={bidValue}
-                onChange={(e) => setBidValue(e.target.value)}
-                className="h-12 rounded-2xl text-base font-extrabold"
-              />
-
-              <div className="grid grid-cols-3 gap-2">
-                <Button
-                  variant="soft"
-                  className="rounded-2xl"
-                  onClick={() => placeBid(Number(bidValue) + auction.minIncrementEgp)}
-                >
-                  +{formatCompact(auction.minIncrementEgp)}
-                </Button>
-                <Button
-                  variant="soft"
-                  className="rounded-2xl"
-                  onClick={() => placeBid(Number(bidValue) + auction.minIncrementEgp * 2)}
-                >
-                  +{formatCompact(auction.minIncrementEgp * 2)}
-                </Button>
-                <Button
-                  variant="soft"
-                  className="rounded-2xl"
-                  onClick={() => placeBid(Number(bidValue) + auction.minIncrementEgp * 5)}
-                >
-                  +{formatCompact(auction.minIncrementEgp * 5)}
-                </Button>
-              </div>
-
-              <Button
-                variant="bid"
-                size="xl"
-                className="mt-1 w-full rounded-2xl"
-                onClick={() => placeBid(Number(bidValue))}
-              >
-                تأكيد العرض
+            <div className="mt-3 grid gap-3">
+              <Button variant="bid" size="xl" className="w-full rounded-2xl" onClick={() => placeBid(minNext)}>
+                زايد الآن (+{formatCompact(auction.minIncrementEgp)} ج.م)
               </Button>
 
-              <div className="mt-2 grid grid-cols-2 gap-2">
+              <Button
+                variant="soft"
+                className="w-full rounded-2xl"
+                onClick={() => setShowCustomBid((v) => !v)}
+              >
+                {showCustomBid ? "إخفاء العرض المخصص" : "عرض مخصص"}
+              </Button>
+
+              {showCustomBid && (
+                <div className="grid gap-2 rounded-2xl border bg-background/60 p-3">
+                  <label className="text-xs font-semibold text-muted-foreground">مبلغ العرض (ج.م)</label>
+                  <Input
+                    inputMode="numeric"
+                    value={bidValue}
+                    onChange={(e) => setBidValue(e.target.value)}
+                    className="h-12 rounded-2xl text-base font-extrabold"
+                  />
+                  <Button
+                    variant="bid"
+                    className="w-full rounded-2xl"
+                    onClick={() => placeBid(Number(bidValue))}
+                  >
+                    تأكيد العرض المخصص
+                  </Button>
+                  <p className="text-xs text-muted-foreground">أقل عرض مسموح: {formatEgp(minNext)}</p>
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-2">
                 <Button
                   variant="outline"
                   className="h-12 rounded-2xl"
