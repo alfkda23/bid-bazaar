@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useMemo, useState } from "react";
-import { Filter, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
 const Index = () => {
   const [query, setQuery] = useState("");
@@ -27,27 +27,24 @@ const Index = () => {
       <header className="px-4 pt-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="text-sm text-muted-foreground">بورصة الغذاء</p>
-            <h1 className="font-display text-2xl font-extrabold tracking-tight">Souq El Gheza</h1>
+            <p className="text-sm text-muted-foreground">ابدأ سريعاً: ابحث ثم ادخل للمزاد</p>
+            <h1 className="font-display text-2xl font-extrabold tracking-tight">المزادات</h1>
           </div>
           <Badge variant="brand" className="shrink-0">
             مزادات مباشرة
           </Badge>
         </div>
 
-        <div className="mt-4 flex items-center gap-2">
-          <div className="relative flex-1">
+        <div className="mt-4">
+          <div className="relative">
             <Search className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="ابحث عن سلعة، فئة، محافظة…"
-              className="h-11 rounded-xl pr-10"
+              placeholder="ابحث عن سلعة أو محافظة…"
+              className="h-12 rounded-2xl pr-10 text-base"
             />
           </div>
-          <Button variant="soft" size="icon" aria-label="فلترة">
-            <Filter />
-          </Button>
         </div>
 
         <div className="mt-3 flex gap-2">

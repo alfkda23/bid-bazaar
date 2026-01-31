@@ -6,7 +6,7 @@ import { NavLink } from "@/components/NavLink";
 import CountdownPill from "@/components/auction/CountdownPill";
 import AuctionImage from "@/components/auction/AuctionImage";
 import { cn } from "@/lib/utils";
-import { ArrowLeft, Users } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 type Props = {
   auction: Auction;
@@ -57,13 +57,9 @@ export default function AuctionCard({ auction, className }: Props) {
             </div>
 
             <div className="flex items-center gap-2">
-              <Badge variant="secondary" className="rounded-full">
-                <Users className="ml-1 h-3.5 w-3.5" />
-                {formatCompact(auction.biddersCount)}
-              </Badge>
               <Button asChild variant="bid" size="sm" className="rounded-full">
                 <NavLink to={`/auction/${auction.id}`}>
-                  مزايدة سريعة
+                  ادخل للمزاد
                   <ArrowLeft className="mr-1 h-4 w-4" />
                 </NavLink>
               </Button>
